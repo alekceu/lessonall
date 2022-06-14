@@ -1,0 +1,1 @@
+az vm create --name AZ-VM3-Internet --resource-group WEB --image "Canonical:UbuntuServer:18.04-LTS:latest" --ssh-key-name AZKEY --output json --verbose --location "australiaeast" --size "Standard_B1ls" --admin-username azuser --public-ip-address "AZ-VM3-IP"

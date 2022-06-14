@@ -1,0 +1,1 @@
+az vm open-port -g WEB -n AZ-VM3-Internet --port 80 --priority 110 --nsg-name AZ-VM3-InternetNSG

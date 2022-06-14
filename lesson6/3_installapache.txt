@@ -1,0 +1,5 @@
+sudo apt-get install  apache2
+sudo chmod 777 html/
+sudo echo "It is my first web page created automaticaly" > /var/www/html/index.html
+sudo service apache2 restart
+

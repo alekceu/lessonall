@@ -1,0 +1,15 @@
+az vm create --name AZ-VM3-IntraNet --resource-group OTUS_DEVOPS --image "Canonical:UbuntuServer:18.04-LTS:latest" --ssh-key-name AZKEY --output json --verbose --location "australiaeast" --size "Standard_B1ls" --admin-username azuser --public-ip-address '""'
+az vm create --name AZ-VM3-IntraNet --resource-group OTUS_DEVOPS --image "Canonical:UbuntuServer:18.04-LTS:latest" --ssh-key-name AZKEY --output json --verbose --location "australiaeast" --size "Standard_B1ls" --admin-username azuser --public-ip-address none
+
+az vm start --resource-group OTUS_DEVOPS --name AZ-VM1-Internet;
+az vm list --output table
+
+
+az vm list --output table | ConvertFrom-Csv -Delimiter " " | Select-Object Name,H2 | Where-Object {$_.Name -like "AZ*"} | ForEach-Object {az vm stop --resource-group $_.H2 --name $_.Name}
+
+
+az group create --name WEB --location "australiaeast"
+az vm create --name AZ-VM3-Internet --resource-group WEB --image "Canonical:UbuntuServer:18.04-LTS:latest" --ssh-key-name AZKEY --output json --verbose --location "australiaeast" --size "Standard_B1ls" --admin-username azuser --public-ip-address "AZ-VM3-IP"
+
+
+az vm list-ip-addresses -g WEB -n AZ-VM3-Internet --output table
