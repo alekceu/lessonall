@@ -13,3 +13,5 @@ az vm create --name AZ-VM3-Internet --resource-group WEB --image "Canonical:Ubun
 
 
 az vm list-ip-addresses -g WEB -n AZ-VM3-Internet --output table
+
+sudo chmod 666 lessonall/lesson6/install.sh
