@@ -1,0 +1,2 @@
+and validate it
+ packer.exe validate ./packer/ubuntu1804.json
