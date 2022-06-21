@@ -1,0 +1,1 @@
+az vm create --name AZ-VM1-APACHE --resource-group WEB --image "AZ-VM-APACHE" --ssh-key-name AZKEY --output json --verbose --location "australiaeast" --size "Standard_B1ls" --admin-username azuser --public-ip-address "AZ-VM1-IP"
