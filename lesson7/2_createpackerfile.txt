@@ -1,2 +1,3 @@
 and validate it
+export var2=AZIMAGE2
  packer.exe validate ./packer/ubuntu1804.json
