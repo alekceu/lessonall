@@ -1,15 +1,22 @@
 {
+	"variables": {
+		"var1": "azuser",
+		"var2": "{{env `var2`}}",
+		"var3": "{{env `var3`}}",
+		"var4": "{{env `var4`}}",
+		"var5": "{{env `var5`}}"
+	},
 	"builders": [
 		{
 		"type": "azure-arm",
 		
-		"client_id": "1dccf616-71c7-4f98-9840-08493e9fc66a",
-		"client_secret": "pMX8Q~HqXjbZ6C0FQmaTr377Jfh~vFa6ZtJx_aR~",
-		"tenant_id": "80f75dd1-74a2-49ce-9e19-80e3c40236bf",
+		"client_id": "{{user `var3`}}",
+		"client_secret": "{{user `var4`}}",
+		"tenant_id": "{{user `var5`}}",
 		"subscription_id": "eb1b6785-5e18-41f5-b7a5-5af402a7d175",
 
 		"managed_image_resource_group_name": "WEB",
-		"managed_image_name": "AZ-VM-APACHE",
+		"managed_image_name": "{{user `var2`}}",
 
 		"os_type": "Linux",
 		"image_publisher": "Canonical",
@@ -18,7 +25,7 @@
 		"location": "australiaeast",
 		"vm_size": "Standard_B1ls",
 
-		"ssh_username": "azuser",
+		"ssh_username": "{{user `var1`}}",
 		
 		"azure_tags": 
 			{
